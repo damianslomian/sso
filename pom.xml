@@ -20,6 +20,7 @@
         <tag/>
         <url/>
     </scm>
+    <packaging>war</packaging>
     <repositories>
         <repository>
             <id>shibboleth</id>
