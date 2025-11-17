@@ -1,6 +1,2 @@
 server:
-  port: ${PORT:8080}
-spring:
-  profiles:
-    active:
-      - entra
+  port: ${PORT:9999}
