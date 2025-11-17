@@ -1,0 +1,81 @@
+{
+  "id": "demo",
+  "realm": "demo",
+  "enabled": true,
+  "sslRequired": "NONE",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": true,
+  "otpPolicyType": "totp",
+  "otpPolicyAlgorithm": "HmacSHA1",
+  "otpPolicyDigits": 6,
+  "otpPolicyPeriod": 30,
+  "otpSupportedApplications": ["FreeOTP", "Google Authenticator", "Microsoft Authenticator"],
+
+  "requiredActions": [
+    {
+      "alias": "CONFIGURE_TOTP",
+      "name": "Configure OTP",
+      "providerId": "CONFIGURE_TOTP",
+      "enabled": true,
+      "defaultAction": true,
+      "priority": 10
+    }
+  ],
+
+  "clients": [
+    {
+      "clientId": "keycloak",
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "rootUrl": "http://localhost:9999",
+      "baseUrl": "http://localhost:9999/",
+      "redirectUris": [
+        "http://localhost:9999/login/oauth2/code/keycloak",
+        "http://localhost:9999/*",
+        "http://localhost:8085/login/oauth2/code/keycloak",
+        "http://localhost:8085/*"
+      ],
+      "webOrigins": ["*"],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "oauth2.device.authorization.grant.enabled": "false"
+      },
+      "defaultClientScopes": ["web-origins", "profile", "email", "roles"],
+      "optionalClientScopes": ["address", "phone"]
+    }
+  ],
+
+  "users": [
+    {
+      "username": "alice",
+      "enabled": true,
+      "emailVerified": false,
+      "email": "alice@example.com",
+      "requiredActions": ["CONFIGURE_TOTP"],
+      "credentials": [
+        {
+          "type": "password",
+          "temporary": true,
+          "value": "Password1!"
+        }
+      ]
+    }
+  ],
+
+  "roles": {
+    "realm": [
+      { "name": "user", "description": "Default user role" },
+      { "name": "admin", "description": "Admin role" }
+    ]
+  },
+
+  "defaultRoles": ["user"],
+
+  "internationalizationEnabled": true,
+  "supportedLocales": ["en", "pl"],
+  "defaultLocale": "pl"
+}
