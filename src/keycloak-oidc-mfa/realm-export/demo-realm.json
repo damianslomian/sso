@@ -31,13 +31,12 @@
       "directAccessGrantsEnabled": false,
       "implicitFlowEnabled": false,
       "serviceAccountsEnabled": false,
-      "rootUrl": "http://localhost:9999",
-      "baseUrl": "http://localhost:9999/",
+      "rootUrl": "https://localhost:8081",
+      "baseUrl": "https://localhost:8081/",
       "redirectUris": [
-        "http://localhost:9999/login/oauth2/code/keycloak",
-        "http://localhost:9999/*",
-        "http://localhost:8085/login/oauth2/code/keycloak",
-        "http://localhost:8085/*"
+        "https://localhost:8081/login/oauth2/code/keycloak",
+        "https://localhost:8081/*"
+
       ],
       "webOrigins": ["*"],
       "attributes": {

@@ -37,7 +37,7 @@ public class OAuth2Configuration {
                                 "/", "/login", "/error", "/oauth2/**",
                                 "/favicon.ico", "/javax.faces.resource/**", "/resources/**",
                                 "/assets/**", "/css/**", "/js/**", "/img/**",
-                                "/logout" // ← permitAll
+                                "/logout"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
